@@ -1,8 +1,6 @@
 package de.syntax_institut.filmestreamingservice.data
 
 import android.content.Context
-import de.syntax_institut.filmestreamingservice.data.model.Movie
-import kotlin.random.Random
 
 /**
  * Diese Klasse bereitet Daten aus den Ressourcen auf
@@ -16,15 +14,25 @@ class Datasource(private val context: Context) {
      * Diese Funktion holt die Titel & Bilder aus der Quelldatei
      * und liefert eine Liste aus Filmen zurück
      */
-    fun loadMovies(): List<Movie> {
+    fun loadMovies(): List<de.syntax_institut.filmestreamingservice.data.model.Movie> {
         // Die Liste an Filmen
         // TODO Schreibe hier deinen Code
+        val movieTitles = mutableListOf<de.syntax_institut.filmestreamingservice.data.model.Movie>()
 
         // Befülle die Liste
         // TODO Schreibe hier deinen Code
+        for (index in 1..numberOfTitles) {
+            val images = getImage(getTitle(index))
+            val text = getTitle(index)
+            movieTitles.add(
+                de.syntax_institut.filmestreamingservice.data.model.Movie(text, images)
+
+            )
+        }
+
 
         // Liefere die Liste zurück
-        return TODO()
+        return movieTitles
     }
 
     /**
